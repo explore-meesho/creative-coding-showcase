@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { GithubIcon, LinkedinIcon, Mail, Code, Laptop } from 'lucide-react';
 import { ShinyButton } from './ui/ShinyButton';
+import { Globe } from './ui/Globe';
 
 export default function Hero() {
   const [ref, inView] = useInView({
@@ -50,8 +51,12 @@ export default function Hero() {
       variants={containerVariants}
       className="min-h-screen flex items-center justify-center px-4 relative"
     >
+      {/* Background with Globe */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-white dark:from-blue-950/50 dark:to-black pointer-events-none" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 lg:translate-x-1/4">
+          <Globe className="opacity-40" />
+        </div>
       </div>
 
       <div className="max-w-4xl w-full text-center relative z-10">
@@ -90,7 +95,7 @@ export default function Hero() {
             whileHover="hover"
             variants={iconVariants}
           >
-            <ShinyButton className="shine-effect">
+            <ShinyButton>
               <Mail className="w-6 h-6" />
             </ShinyButton>
           </motion.a>
@@ -101,7 +106,7 @@ export default function Hero() {
             whileHover="hover"
             variants={iconVariants}
           >
-            <ShinyButton className="shine-effect">
+            <ShinyButton>
               <GithubIcon className="w-6 h-6" />
             </ShinyButton>
           </motion.a>
@@ -112,7 +117,7 @@ export default function Hero() {
             whileHover="hover"
             variants={iconVariants}
           >
-            <ShinyButton className="shine-effect">
+            <ShinyButton>
               <LinkedinIcon className="w-6 h-6" />
             </ShinyButton>
           </motion.a>
