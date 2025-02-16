@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { GithubIcon, LinkedinIcon, Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, Mail, Code, Laptop } from 'lucide-react';
 
 export default function Hero() {
   const [ref, inView] = useInView({
@@ -29,21 +29,41 @@ export default function Hero() {
     },
   };
 
+  const iconVariants = {
+    hover: {
+      scale: 1.2,
+      rotate: 5,
+      transition: {
+        duration: 0.2,
+        type: "spring",
+        stiffness: 300,
+      },
+    },
+  };
+
   return (
     <motion.div
       ref={ref}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="min-h-screen flex items-center justify-center px-4"
+      className="min-h-screen flex items-center justify-center px-4 relative"
     >
-      <div className="max-w-4xl w-full text-center">
-        <motion.span
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-white dark:from-blue-950/50 dark:to-black pointer-events-none" />
+      </div>
+
+      <div className="max-w-4xl w-full text-center relative z-10">
+        <motion.div 
           variants={childVariants}
-          className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-4"
+          className="flex items-center justify-center gap-2 mb-6"
         >
-          Software Developer
-        </motion.span>
+          <Code className="w-6 h-6 text-blue-500" />
+          <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">
+            Software Developer
+          </span>
+          <Laptop className="w-6 h-6 text-blue-500" />
+        </motion.div>
         
         <motion.h1
           variants={childVariants}
@@ -54,37 +74,44 @@ export default function Hero() {
         
         <motion.p
           variants={childVariants}
-          className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
         >
-          Creating elegant solutions through code. Specialized in React, Node.js, and modern web technologies.
+          B.Tech in Electrical Engineering from NIT Kurukshetra • Full Stack Developer • 
+          Creating elegant solutions through modern web technologies
         </motion.p>
         
         <motion.div
           variants={childVariants}
           className="flex items-center justify-center space-x-4"
         >
-          <a
+          <motion.a
             href="mailto:nahtasanyam@gmail.com"
-            className="shine-effect p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="shine-effect p-3 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
+            whileHover="hover"
+            variants={iconVariants}
           >
-            <Mail className="w-6 h-6" />
-          </a>
-          <a
+            <Mail className="w-6 h-6 text-blue-600" />
+          </motion.a>
+          <motion.a
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="shine-effect p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="shine-effect p-3 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
+            whileHover="hover"
+            variants={iconVariants}
           >
-            <GithubIcon className="w-6 h-6" />
-          </a>
-          <a
+            <GithubIcon className="w-6 h-6 text-blue-600" />
+          </motion.a>
+          <motion.a
             href="https://linkedin.com/in/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="shine-effect p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="shine-effect p-3 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
+            whileHover="hover"
+            variants={iconVariants}
           >
-            <LinkedinIcon className="w-6 h-6" />
-          </a>
+            <LinkedinIcon className="w-6 h-6 text-blue-600" />
+          </motion.a>
         </motion.div>
       </div>
     </motion.div>
