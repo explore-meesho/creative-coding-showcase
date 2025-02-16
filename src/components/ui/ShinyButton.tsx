@@ -1,9 +1,9 @@
 
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import React from 'react';
 
-interface ShinyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ShinyButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
   children: React.ReactNode;
   className?: string;
 }
