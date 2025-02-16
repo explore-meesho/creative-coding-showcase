@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { GithubIcon, LinkedinIcon, Mail, Code, Laptop } from 'lucide-react';
+import { ShinyButton } from './ui/ShinyButton';
 
 export default function Hero() {
   const [ref, inView] = useInView({
@@ -86,31 +87,34 @@ export default function Hero() {
         >
           <motion.a
             href="mailto:nahtasanyam@gmail.com"
-            className="shine-effect p-3 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
             whileHover="hover"
             variants={iconVariants}
           >
-            <Mail className="w-6 h-6 text-blue-600" />
+            <ShinyButton className="shine-effect">
+              <Mail className="w-6 h-6" />
+            </ShinyButton>
           </motion.a>
           <motion.a
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="shine-effect p-3 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
             whileHover="hover"
             variants={iconVariants}
           >
-            <GithubIcon className="w-6 h-6 text-blue-600" />
+            <ShinyButton className="shine-effect">
+              <GithubIcon className="w-6 h-6" />
+            </ShinyButton>
           </motion.a>
           <motion.a
             href="https://linkedin.com/in/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="shine-effect p-3 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
             whileHover="hover"
             variants={iconVariants}
           >
-            <LinkedinIcon className="w-6 h-6 text-blue-600" />
+            <ShinyButton className="shine-effect">
+              <LinkedinIcon className="w-6 h-6" />
+            </ShinyButton>
           </motion.a>
         </motion.div>
       </div>
