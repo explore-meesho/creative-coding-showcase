@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from '../components/Hero';
 import Skills from '../components/Skills';
+import Experience from '../components/Experience';
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       >
         <Hero />
         <Skills />
+        <Experience />
       </motion.div>
     </AnimatePresence>
   );
